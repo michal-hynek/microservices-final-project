@@ -4,15 +4,20 @@
 
 # Step 1:
 # This is your Docker ID/path
-# dockerpath=<>
+dockerpath=michalhynek/microservices-final-project
 
 # Step 2
 # Run the Docker Hub container with kubernetes
-
+kubectl run microservices-final-project \
+    --image=$dockerpath \
+    --port=80 \
+    --labels app=microservices-final-project
 
 # Step 3:
 # List kubernetes pods
+kubectl get pods
 
 # Step 4:
 # Forward the container port to a host
+kubectl port-forward microservices-final-project 8000:80
 
